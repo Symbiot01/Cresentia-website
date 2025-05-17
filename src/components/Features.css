@@ -1,19 +1,47 @@
 .Section#features {
   background: #f7f8fa;
 }
-.Section#features h2 {
+.Features h2 {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 16px;
+  color: var(--font-primary);
+  margin-bottom: 1rem;
 }
-.Section#features ul {
-  list-style: none;
-  padding: 0;
+
+.Features p {
+  text-align: center;
+  color: var(--font-muted);
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
 }
-.Section#features li {
-  margin-bottom: 20px;
-  font-size: 1rem;
+.FeaturesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
-.Section#features li strong {
-  color: #0055FF;
+
+.FeatureCard {
+  background: var(--surface-card, #1B1D24);
+  border: 1px solid rgba(199, 161, 122, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.FeatureCard h3 {
+  color: var(--font-secondary);
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.FeatureCard p {
+  color: var(--font-muted);
+  line-height: 1.5;
+}
+
+.FeatureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(199, 161, 122, 0.15);
+  border-color: rgba(199, 161, 122, 0.4);
 }

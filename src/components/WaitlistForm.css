@@ -1,0 +1,31 @@
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.waitlist-form input,
+.waitlist-form textarea {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.waitlist-form textarea {
+  resize: vertical;
+}
+
+.waitlist-form .button-primary {
+  background: #0055FF;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  align-self: flex-start;
+}

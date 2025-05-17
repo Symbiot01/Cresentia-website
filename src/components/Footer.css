@@ -1,31 +1,117 @@
-/* src/components/Footer.css */
+/* Footer.css */
 .footer {
-  background: #222;
+  background: #1a1a1a;
   color: #ccc;
-  padding: 40px 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 24px;
-  text-align: left;
+  position: relative;
+  overflow: hidden;
+  padding: 60px 20px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
 }
+
+/* Decorative wave at the top */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120'%3E%3Cpath d='M0 0h1200v46.29c-45 22-89.09 30.6-134.65 28C943.76 72.75 894 43.18 842 33.39c-50.95-9.79-101.76 0-153 13-48.93 12.47-99 30.92-148 28-51.4-3.1-99-26.6-150-30-55.41-3.9-119 9-169 35-50 26-132 42-204 28-38-7-68-26-96-46C75 46.8 35 20 0 0z' fill='%231a1a1a'%3E%3C/path%3E%3C/svg%3E") no-repeat center top;
+  background-size: cover;
+}
+
+.footer > div {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
 .footer h4 {
+  font-size: 1.1rem;
   color: #fff;
-  margin-bottom: 8px;
+  margin-bottom: 0.8rem;
 }
+
+/* -------------------------------
+   CENTER-GROW UNDERLINE EFFECT
+   scoped to footer links only
+---------------------------------*/
 .footer a {
   display: block;
-  color: #0055FF;
+  color: #bbb;
   text-decoration: none;
-  margin-bottom: 6px;
-  font-size: 0.95rem;
+  margin: 0.4rem 0;
+  position: relative;
+  transition: color 0.4s ease;
 }
-.footer-contact p {
-  margin: 4px 0;
+
+.footer a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;           /* a bit thinner in footer */
+  bottom: -2px;          /* just beneath the text */
+  left: 50%;
+  background-color: #A6A6A6;
+  transition: all 0.4s ease;
 }
+
+.footer a:hover::before,
+.footer a:focus::before {
+  width: 100%;
+  left: 0;
+}
+
+.footer a:hover,
+.footer a:focus {
+  color: #fff;
+}
+
+/* Social Icons keep their own display setting */
+.footer-social a {
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  color: #bbb;
+  position: relative;
+  transition: color 0.4s ease;
+}
+
+.footer-social a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 50%;
+  background-color: #A6A6A6;
+  transition: all 0.4s ease;
+}
+
+.footer-social a:hover::before,
+.footer-social a:focus::before {
+  width: 100%;
+  left: 0;
+}
+
+.footer-social a:hover,
+.footer-social a:focus {
+  color: #fff;
+}
+
 .footer-copy {
-  grid-column: 1 / -1;
+  flex: 1 1 100%;
   text-align: center;
-  margin-top: 20px;
   font-size: 0.85rem;
   color: #777;
+  margin-top: 2rem;
+}
+
+/* Accessibility: focus outline (for text links & icons) */
+.footer a:focus,
+.footer-social a:focus {
+  outline: 2px dashed #ff6f61;
+  outline-offset: 4px;
 }

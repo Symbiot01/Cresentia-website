@@ -1,0 +1,34 @@
+:root {
+  /* Brand palette */
+  --color-primary:   #C7A17A;  /* Gold */
+  --color-secondary: #7A6B4F;  /* Olive */
+  --color-accent:    #B47457;  /* Terracotta */
+  --color-dark:      #3F3A36;  /* Dark Bark */
+  --color-light:     #F5F2E0;  /* Cream Canvas */
+
+  
+  /* Primary Text Colors */
+  --font-primary: #2E2E2E;    /* Dark Charcoal for main text */
+  --font-secondary: #7A6B4F;  /* Olive for headings or accents */
+  --font-light: #B47457;      /* Terracotta for subtle highlights */
+
+  /* Neutral & Muted */
+  --font-muted: #8C8C8C;      /* Grey for descriptions/hints */
+  --font-subtle: #C7A17A;     /* Gold tone for light headings */
+
+  /* Light/Dark Modes (optional) */
+  --font-on-dark: #F5F2E0;    /* Cream for dark backgrounds */
+  --font-on-light: #2E2E2E;   /* Dark for light backgrounds */
+
+  /* Link Colors */
+  --font-link: #B47457;       /* Terracotta links */
+  --font-link-hover: #C7A17A; /* Gold hover effect */
+
+  /* Error/Success States */
+  --font-error: #D9534F;      /* Soft Red */
+  --font-success: #5CB85C;    /* Gentle Green */
+
+  
+  /* Typography */
+  --font-base: 'Helvetica Neue', Arial, sans-serif;
+}

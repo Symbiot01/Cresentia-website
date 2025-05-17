@@ -1,21 +1,60 @@
-.Section#faq {
-  background: #f7f8fa;
-}
-.Section#faq h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 16px;
-}
-.Section#faq dl {
-  max-width: 800px;
+.faq-section {
+  padding: 4rem 2rem;
   margin: 0 auto;
+  text-align: center;
 }
-.Section#faq dt {
-  font-weight: 600;
-  margin-top: 20px;
+.faq-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
-.Section#faq dd {
-  margin-left: 0;
-  margin-bottom: 12px;
-  line-height: 1.5;
+
+.faq-container {
+  margin-top: 2rem;
+}
+
+.faq-item {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+  width: 100%;
+  background: #f9f9f9;
+  border: none;
+  padding: 1rem;
+  text-align: left;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.arrow-icon.open {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #fff;
+  padding: 0 1rem;
+  font-size: 1rem;
+}
+
+.faq-answer.visible {
+  max-height: 200px; /* Adjust as needed */
+  padding: 1rem;
 }
