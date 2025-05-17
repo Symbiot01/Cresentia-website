@@ -1,12 +1,19 @@
 .Section#about {
-  background: #fff;
+  background: #f7f8fa; /* Match Features section background */
 }
+
 .Section#about h2 {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 16px;
+  color: var(--font-primary);
+  margin-bottom: 1rem;
+  font-size: 3.5rem; /* Match Features h2 font size */
 }
+
 .Section#about p {
-  font-size: 1rem;
+  text-align: center;
+  color: var(--font-muted);
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
   line-height: 1.6;
+  font-size: 1.2rem; /* Match Features p font size */
 }

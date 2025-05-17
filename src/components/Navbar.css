@@ -71,6 +71,6 @@
 }
 
 .navbar .links a:hover {
-  color: #0D7CFF;
-  text-shadow: 0 0 10px #0D7CFF, 0 0 20px #0D7CFF, 0 0 30px #0D7CFF, 0 0 40px #0D7CFF;
+  color: var(--color-accent);
+  text-shadow: 0 0 10px var(--color-accent), 0 0 20px var(--color-accent), 0 0 30px var(--color-accent), 0 0 40px var(--color-accent);
 }

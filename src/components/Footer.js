@@ -23,9 +23,7 @@ export default function Footer() {
         <h4>Follow Us</h4>
         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-      </div>
+        </div>
 
       <div className="footer-copy">
         &copy; {new Date().getFullYear()} Crescentia. All rights reserved.

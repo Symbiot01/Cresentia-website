@@ -19,13 +19,51 @@
   resize: vertical;
 }
 
-.waitlist-form .button-primary {
-  background: #0055FF;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  font-size: 1rem;
-  cursor: pointer;
+/* Radar-sweep button effect */
+.waitlist .button-primary {
+  position: relative;
+  background: var(--color-light);
+  color: var(--color-accent);
+  padding: 12px 28px;
   border-radius: 6px;
-  align-self: flex-start;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(101, 233, 199, 0.2);
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.waitlist-form .button-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 150%;
+  background: linear-gradient(
+    0deg,
+    transparent 0%,
+    rgba(180, 116, 87, 0.4) 50%,
+    transparent 100%
+  );
+  transform-origin: 0 0;
+  transform: rotate(0deg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.waitlist-form .button-primary:hover {
+  color: var(--color-accent)  ;
+  box-shadow: 0 0 20px rgba(101, 233, 199, 0.2);
+  border-color: rgba(101, 233, 199, 0.4);
+}
+
+.waitlist-form .button-primary:hover::before {
+  opacity: 1;
+  animation: radar-sweep 3s infinite linear;
+}
+
+.waitlist-form .button-primary:active {
+  transform: scale(0.97);
 }

@@ -7,6 +7,12 @@
   --color-light:     #F5F2E0;  /* Cream Canvas */
 
   
+  
+  /* Background Colors */
+  --bg-light: #FAF9F5;         /* Very light off-white */
+  --bg-cream: #F5F2E0;         /* Matching Cream Canvas */
+  --bg-dark: #3F3A36;          /* Dark Bark background */
+  
   /* Primary Text Colors */
   --font-primary: #2E2E2E;    /* Dark Charcoal for main text */
   --font-secondary: #7A6B4F;  /* Olive for headings or accents */
@@ -28,7 +34,7 @@
   --font-error: #D9534F;      /* Soft Red */
   --font-success: #5CB85C;    /* Gentle Green */
 
-  
+
   /* Typography */
   --font-base: 'Helvetica Neue', Arial, sans-serif;
 }
