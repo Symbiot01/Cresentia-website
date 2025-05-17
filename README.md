@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# Crescentia Landing Page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive React landing page for **Crescentia**, an immersive 3D event design platform. Built with separate components for each section, smooth scroll-based animations, and a mobile-friendly navbar that collapses into a hamburger menu.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+* **Hero Section** with background image, headline, subtext, and primary call-to-action.
+* **Features Overview** listing key platform capabilities.
+* **Call to Action** section prompting users to join the waitlist.
+* **About** section describing the company’s origin and mission.
+* **FAQ** section with common questions and answers.
+* **Footer** with contact info and quick links.
+* **Responsive Navbar** that becomes a hamburger menu on mobile.
+* **Scroll Animations**: Sections slide in and fade when scrolled into view (IntersectionObserver).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📁 Project Structure
 
-### `npm test`
+```
+src/
+├── App.js          # Main application component
+├── App.css         # Global styles
+├── index.js        # React entry point
+└── components/     # Reusable UI components
+    ├── Navbar.js
+    ├── Navbar.css
+    ├── Hero.js
+    ├── Hero.css
+    ├── Features.js
+    ├── Features.css
+    ├── CTA.js
+    ├── CTA.css
+    ├── About.js
+    ├── About.css
+    ├── FAQ.js
+    ├── FAQ.css
+    ├── Footer.js
+    ├── Footer.css
+    └── ScrollObserver.js  # Custom hook for scroll-triggered animations
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠️ Installation & Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   git clone https://github.com/yourusername/crescentia-landing.git
+   cd crescentia-landing
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Install dependencies**
 
-### `npm run eject`
+   Using npm:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   Or yarn:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   yarn install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Run the development server**
 
-## Learn More
+   ```bash
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   The site will open at `http://localhost:3000/`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. **Build for production**
 
-### Code Splitting
+   ```bash
+   npm run build
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   The optimized files will be in the `build/` directory.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🎨 Customization
 
-### Making a Progressive Web App
+* Replace `src/assets/hero-bg.jpg` with your own hero background image.
+* Update theme colors in `App.css` and individual component CSS files.
+* Modify text, links, and content directly in each component file.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 💡 Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+You can deploy the production build to any static hosting:
 
-### Deployment
+* **Netlify**: drag-and-drop the `build/` folder in the UI.
+* **Vercel**: `vercel --prod` (requires Vercel CLI).
+* **GitHub Pages**: use [`gh-pages`](https://www.npmjs.com/package/gh-pages).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fork the repo
+2. Create a new branch (`git checkout -b feature/my-feature`)
+3. Commit your changes (\`git commit -m "Add feature"
+4. Push to the branch (`git push origin feature/my-feature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+*Made with ❤️ by Crescentia Team*

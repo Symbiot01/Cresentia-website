@@ -1,0 +1,31 @@
+/* src/components/Footer.css */
+.footer {
+  background: #222;
+  color: #ccc;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  text-align: left;
+}
+.footer h4 {
+  color: #fff;
+  margin-bottom: 8px;
+}
+.footer a {
+  display: block;
+  color: #0055FF;
+  text-decoration: none;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+.footer-contact p {
+  margin: 4px 0;
+}
+.footer-copy {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #777;
+}

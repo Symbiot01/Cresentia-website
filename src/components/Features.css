@@ -1,0 +1,19 @@
+.Section#features {
+  background: #f7f8fa;
+}
+.Section#features h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+.Section#features ul {
+  list-style: none;
+  padding: 0;
+}
+.Section#features li {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+.Section#features li strong {
+  color: #0055FF;
+}

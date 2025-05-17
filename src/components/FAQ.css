@@ -1,0 +1,21 @@
+.Section#faq {
+  background: #f7f8fa;
+}
+.Section#faq h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+.Section#faq dl {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.Section#faq dt {
+  font-weight: 600;
+  margin-top: 20px;
+}
+.Section#faq dd {
+  margin-left: 0;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}

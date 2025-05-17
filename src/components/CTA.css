@@ -1,0 +1,14 @@
+.Section#cta {
+  text-align: center;
+  background: #0055FF;
+  color: white;
+  padding: 100px 20px;
+}
+.Section#cta h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+.Section#cta p {
+  margin-top: 16px;
+  font-size: 1rem;
+}
