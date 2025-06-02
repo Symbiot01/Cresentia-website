@@ -1,61 +1,15 @@
-.Section#features {
-  background: #f7f8fa;
-}
-.Features h2 {
+.features-page{
+  background-color: #cca180;
+  padding: 60px 20px;
   text-align: center;
-  color: var(--font-primary);
-  margin-bottom: 1rem;
-  font-size: 3.5rem;
 }
 
-.Features p {
+.features-heading {
+  font-family: 'Avenir', sans-serif;
+  font-size: 6em;
+  color: #6c6142;
+  margin-bottom: 40px;
   text-align: center;
-  color: var(--font-muted);
-  max-width: 700px;
-  margin: 0 auto 2rem auto;
-  line-height: 1.6;
-  font-size: 1.2rem;
-}
-.FeaturesGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-  grid-auto-rows: 1fr;
+  text-shadow: -2px -2px 4px rgba(0, 0, 0, 0.3); /* Drop shadow at -45° */
 }
 
-.FeatureCard {
-  background: var(--surface-card, var(--font-on-light));
-  border: 1px solid var(--font-primary);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* This centers both h3 and p vertically */
-  text-align: center;
-  
-}
-
-.FeatureCard h3 {
-  color: var(--font-light);
-  margin-bottom: 0.5rem;
-  font-size: 1.25rem;
-}
-
-.FeatureCard p {
-  color: var(--font-muted);
-  line-height: 1.5;
-  font-size: 0.85rem;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-
-.FeatureCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(199, 161, 122, 0.15);
-  border-color: rgba(199, 161, 122, 0.4);
-}

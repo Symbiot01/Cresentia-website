@@ -21,14 +21,11 @@ export default function Hero() {
   return (
     <section ref={ref} className="hero-container" id="hero">
       <div className="hero-content">
-        <h1>Design smarter. Plan faster. Execute flawlessly.</h1>
-        <p className="subheadline">Welcome to Crescentia — your immersive 3D event design platform.</p>
-        <p>
-          The best events begin long before guests arrive.<br />
-          They start in the mind of a planner — visualizing every chair, every light, every detail.<br />
-          But until now, the tools just couldn’t keep up with that vision.<br />
-          Crescentia replaces static sketches and endless guesswork with a drag-and-drop 3D design studio tailored for event creators. Whether you’re building a wedding in Tuscany or a trade show in Berlin, Crescentia lets you visualize it before it’s real — and get every stakeholder aligned, fast.
+        <h1>Design smarter. Plan faster.<br /> Execute flawlessly.</h1>
+        <p className="subheadline">
+          Welcome to <strong>Crescentia</strong> — your immersive 3D event design platform.
         </p>
+
          {/*
           4. Conditional rendering here:
             • If showForm is false, show the CTA button

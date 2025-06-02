@@ -2,7 +2,7 @@
   padding: 4rem 2rem;
   margin: 0 auto;
   text-align: center;
-  background: #f7f8fa;
+  background-color: #eeddbd;    
 }
 
 .faq-section h2 {
@@ -38,7 +38,7 @@
   border: none;
   padding: 1.25rem 1rem;
   text-align: left;
-  font-size: 1.25rem;
+  font-size: 2rem;
   font-weight: 500;
   display: flex;
   justify-content: space-between;
@@ -57,15 +57,20 @@
 }
 
 .faq-answer {
+
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
   background: var(--font-on-dark); /* Cream for contrast */
   color: var(--font-muted);
   padding: 0 1rem;
-  font-size: 1rem;
+  font-size: 2rem;
   line-height: 1.6;
+  /* font-weight: bold; */
+  color: #6e4a2e;
+  text-align: left;
 }
+
 
 .faq-answer.visible {
   max-height: 500px; /* Expanded height */

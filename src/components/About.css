@@ -1,19 +1,50 @@
-.Section#about {
-  background: #f7f8fa; /* Match Features section background */
+.about-section {
+  background-color: #cca180;
+  padding: 4rem 2rem;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.Section#about h2 {
-  text-align: center;
-  color: var(--font-primary);
-  margin-bottom: 1rem;
-  font-size: 3.5rem; /* Match Features h2 font size */
+.about-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 40%;
+}
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
 }
 
-.Section#about p {
+.about-text {
+    display: flex;
+  flex: 1;
+  min-width: 300px;
+  color: #2f2f2f;
+}
+
+.about-text h2 {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
   text-align: center;
-  color: var(--font-muted);
-  max-width: 700px;
-  margin: 0 auto 2rem auto;
+  font-size: 5rem;
+  color: #5d4524;
+  margin-left: 10px;
+  margin-bottom: .1rem;
+  float: right;
+}
+
+.about-text p {
+  font-size: 1.5rem;
   line-height: 1.6;
-  font-size: 1.2rem; /* Match Features p font size */
+  margin-bottom: 1rem;
 }

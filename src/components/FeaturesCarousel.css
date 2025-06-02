@@ -1,0 +1,93 @@
+/* 1. Wrapper: background & overflow */
+.features-wrapper {
+  width: 100%;
+  height: max-content;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  background-color: #cca180;
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+/* 2. Scrollable Container: horizontal scroll, snap & smooth */
+.features-container {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;  /* <-- ensures programmatic scrolls animate */
+  -webkit-overflow-scrolling: touch;
+  gap: 32px;                /* MUST match the JS “gap = 32” */
+  box-sizing: content-box;
+
+  /* Hide scrollbars */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.features-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* 3. Card Default (scaled-down) */
+.feature-card {
+  flex: 0 0 30%;
+  background: #a47055;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  scroll-snap-align: center;
+  transform: scale(0.6);
+  transform-origin: center center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: visible;
+  cursor: pointer;
+}
+
+/* 4. Card Active (scaled-up) */
+.feature-card.active {
+  transform: scale(0.8);
+  z-index: 2;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* 5. Image Wrapper (16:9) */
+.image-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 6. Text Under Image */
+.text-wrapper {
+  padding: 16px;
+}
+.text-wrapper h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+.text-wrapper p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #eee;
+}
+
+/* 7. Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .feature-card {
+    flex: 0 0 45%;
+  }
+}
+@media (max-width: 600px) {
+  .feature-card {
+    flex: 0 0 80%;
+  }
+}
