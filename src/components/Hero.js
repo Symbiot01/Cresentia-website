@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useScrollObserver from './ScrollObserver';
 import './Hero.css';
 import WaitlistForm from './WaitlistForm';
-import heroImage from '../assets/hero-visual.png';
+import heroImage from '../assets/page-1.png';
 
 export default function Hero() {
   const ref = useScrollObserver();

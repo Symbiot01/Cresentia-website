@@ -1,48 +1,39 @@
 import React from 'react';
 import FeaturesCarousel from './FeaturesCarousel';
-import './Features.css'; // Optional: page‐level CSS
+import './Features.css';
+
 
 const featureData = [
-  {
-    id: 1,
-    imageUrl: 'https://via.placeholder.com/400x225.png?text=Feature+1',
-    title: 'Feature One',
-    description: 'This is the first feature description.',
-  },
-  {
-    id: 2,
-    imageUrl: 'https://via.placeholder.com/400x225.png?text=Feature+2',
-    title: 'Feature Two',
-    description: 'This is the second feature description.',
-  },
-  {
-    id: 3,
-    imageUrl: 'https://via.placeholder.com/400x225.png?text=Feature+3',
-    title: 'Feature Three',
-    description: 'This is the third feature description.',
-  },
-  {
-    id: 4,
-    imageUrl: 'https://via.placeholder.com/400x225.png?text=Feature+4',
-    title: 'Feature Four',
-    description: 'This is the fourth feature description.',
-  },
-  {
-    id: 5,
-    imageUrl: 'https://via.placeholder.com/400x225.png?text=Feature+5',
-    title: 'Feature Five',
-    description: 'This is the fifth feature description.',
-  },
+  // First set
+  { id: 1, imageUrl: require('../assets/feature-1.png') },
+  { id: 2, imageUrl: require('../assets/feature-2.png') },
+  { id: 3, imageUrl: require('../assets/feature-3.png') },
+  { id: 4, imageUrl: require('../assets/feature-4.png') },
+  { id: 5, imageUrl: require('../assets/feature-5.png') },
+  { id: 6, imageUrl: require('../assets/feature-6.png') },
+
+  // Second set
+  { id: 7, imageUrl: require('../assets/feature-1.png') },
+  { id: 8, imageUrl: require('../assets/feature-2.png') },
+  { id: 9, imageUrl: require('../assets/feature-3.png') },
+  { id: 10, imageUrl: require('../assets/feature-4.png') },
+  { id: 11, imageUrl: require('../assets/feature-5.png') },
+  { id: 12, imageUrl: require('../assets/feature-6.png') },
+
+  // Third set
+  { id: 13, imageUrl: require('../assets/feature-1.png') },
+  { id: 14, imageUrl: require('../assets/feature-2.png') },
+  { id: 15, imageUrl: require('../assets/feature-3.png') },
+  { id: 16, imageUrl: require('../assets/feature-4.png') },
+  { id: 17, imageUrl: require('../assets/feature-5.png') },
+  { id: 18, imageUrl: require('../assets/feature-6.png') },
 ];
+
 
 export default function Features() {
   return (
-    <div
-      className="features-page">
-      <h2
-        className="features-heading"      >
-        Our Features
-      </h2>
+    <div className="features-page">
+      <h2 className="features-heading">Our Features</h2>
       <FeaturesCarousel features={featureData} />
     </div>
   );

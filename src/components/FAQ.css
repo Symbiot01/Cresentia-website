@@ -1,50 +1,21 @@
-.faq-section {
-  padding: 4rem 2rem;
-  margin: 0 auto;
-  text-align: center;
-  background-color: #eeddbd;    
-}
-
-.faq-section h2 {
-  font-size: 3.5rem;
-  color: var(--font-primary);
-  margin-bottom: 1rem;
-}
-
-.faq-container {
-  margin-top: 2rem;
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .faq-item {
-  border: 1px solid var(--font-secondary);
-  border-radius: 12px;
-  margin-bottom: 1rem;
-  overflow: hidden;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
-  background: var(--color-light); /* Cream Canvas */
-}
-
-.faq-item:hover {
-  box-shadow: 0 10px 30px rgba(199, 161, 122, 0.15);
-  border-color: rgba(199, 161, 122, 0.4);
 }
 
 .faq-question {
   width: 100%;
-  background: var(--color-light);
+  background: transparent;
   border: none;
-  padding: 1.25rem 1rem;
-  text-align: left;
+  padding: 1rem 0;
   font-size: 2rem;
   font-weight: 500;
   display: flex;
+  background-color: #eeddbd; 
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
   color: var(--font-secondary); /* Olive */
+  text-align: left;
+  padding: 1rem 6rem;
 }
 
 .arrow-icon {
@@ -57,22 +28,42 @@
 }
 
 .faq-answer {
-
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
-  background: var(--font-on-dark); /* Cream for contrast */
-  color: var(--font-muted);
-  padding: 0 1rem;
+  background-color: #cca180;
+  color: #6e4a2e;
   font-size: 2rem;
   line-height: 1.6;
-  /* font-weight: bold; */
-  color: #6e4a2e;
+  border-radius: 8px;
   text-align: left;
+  margin-top: 0.5rem;
+  padding: 0 1.5rem; /* horizontal padding added */
+}
+
+.faq-answer.visible {
+  max-height: 500px;
+  padding: 1.5rem; /* vertical and horizontal padding */
+}
+
+.faq-separator {
+  border: none;
+  height: 1px;
+  background-color: rgba(110, 74, 46, 0.2);
+}
+.faq-container {
+  background-color: #eeddbd; 
+  padding: 0.5rem 6rem;
 }
 
 
-.faq-answer.visible {
-  max-height: 500px; /* Expanded height */
-  padding: 1rem;
+.heading{
+  font-family: 'Avenir', sans-serif;
+  font-size: 6em;
+  color: #6c6142;
+  padding: 40px 0;
+  background-color: #eeddbd; 
+  text-align: center;
+  text-shadow: -2px -2px 4px rgba(0, 0, 0, 0.3); /* Drop shadow at -45° */
+  margin: 0px;
 }

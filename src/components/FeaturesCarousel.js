@@ -10,22 +10,21 @@ import './FeaturesCarousel.css';
 export default function FeaturesCarousel({ features }) {
   const containerRef = useRef(null);
 
-  // 1. Keep a stateful array for the carousel order
+  // 1. Stateful carousel items
   const [carouselItems, setCarouselItems] = useState(features);
 
-  // 2. Track which index (0…n−1) is currently closest to the container’s center
+  // 2. Track active index closest to center
   const [activeIndex, setActiveIndex] = useState(
     Math.floor(features.length / 2)
   );
 
-  // 3. Track whether we need to rotate “left” or “right” after scroll settles
-  //    ('right' means move first→end; 'left' means move last→front; null means no rotation)
+  // 3. Rotation direction ref
   const pendingRotation = useRef(null);
 
-  // 4. Debounce timer ID
+  // 4. Debounce timer ref
   const debounceTimer = useRef(null);
 
-  // 5. Convert vertical wheel into horizontal scroll
+  // 5. Vertical wheel → horizontal scroll
   const handleWheel = (e) => {
     const c = containerRef.current;
     if (!c) return;
@@ -35,7 +34,7 @@ export default function FeaturesCarousel({ features }) {
     }
   };
 
-  // 6. Find which card is closest to container’s horizontal center and update activeIndex
+  // 6. Memoized updateActiveIndex
   const updateActiveIndex = useCallback(() => {
     const c = containerRef.current;
     if (!c) return;
@@ -60,66 +59,75 @@ export default function FeaturesCarousel({ features }) {
     setActiveIndex(closest);
   }, []);
 
-  // 7. On scroll, update activeIndex immediately and mark if a boundary is reached
-  const handleScroll = () => {
+  // 7 & 8. Attach scroll listener, define handleScroll and boundaryCheck inside useEffect
+  useEffect(() => {
+    const c = containerRef.current;
+    if (!c) return;
+
+    // boundaryCheck moves carouselItems for infinite scroll effect
+    const boundaryCheck = () => {
+      if (!pendingRotation.current) return;
+
+      if (
+        pendingRotation.current === 'right' &&
+        activeIndex === carouselItems.length - 1
+      ) {
+        setCarouselItems((prev) => {
+          if (prev.length <= 1) return prev;
+          return [...prev.slice(1), prev[0]];
+        });
+      } else if (
+        pendingRotation.current === 'left' &&
+        activeIndex === 0
+      ) {
+        setCarouselItems((prev) => {
+          if (prev.length <= 1) return prev;
+          return [prev[prev.length - 1], ...prev.slice(0, prev.length - 1)];
+        });
+      } else {
+        pendingRotation.current = null;
+      }
+    };
+
+    // handleScroll uses latest activeIndex and carouselItems
+    const handleScroll = () => {
+      updateActiveIndex();
+
+      if (activeIndex === carouselItems.length - 1) {
+        pendingRotation.current = 'right';
+      } else if (activeIndex === 0) {
+        pendingRotation.current = 'left';
+      } else {
+        pendingRotation.current = null;
+      }
+
+      if (debounceTimer.current) {
+        clearTimeout(debounceTimer.current);
+      }
+      debounceTimer.current = setTimeout(() => {
+        boundaryCheck();
+      }, 100);
+    };
+
     updateActiveIndex();
+    c.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', updateActiveIndex);
 
-    // Determine if we are “at” the first or last card
-    // (so that after debouncing, we know which rotation to perform)
-    if (activeIndex === carouselItems.length - 1) {
-      pendingRotation.current = 'right';
-    } else if (activeIndex === 0) {
-      pendingRotation.current = 'left';
-    } else {
-      pendingRotation.current = null;
-    }
+    return () => {
+      c.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateActiveIndex);
+      if (debounceTimer.current) {
+        clearTimeout(debounceTimer.current);
+      }
+    };
+  }, [activeIndex, carouselItems.length, updateActiveIndex]);
 
-    // Debounce: wait 100 ms after the last scroll event before actually rotating
-    if (debounceTimer.current) {
-      clearTimeout(debounceTimer.current);
-    }
-    debounceTimer.current = setTimeout(() => {
-      boundaryCheck();
-    }, 100);
-  };
-
-  // 8. Only rotate if activeIndex is exactly 0 or exactly lastIndex
-  const boundaryCheck = () => {
-    if (!pendingRotation.current) return;
-
-    if (
-      pendingRotation.current === 'right' &&
-      activeIndex === carouselItems.length - 1
-    ) {
-      // Move first element to the end
-      setCarouselItems((prev) => {
-        if (prev.length <= 1) return prev;
-        return [...prev.slice(1), prev[0]];
-      });
-      // We keep pendingRotation.current === 'right' so that useLayoutEffect can adjust scrollLeft
-    } else if (
-      pendingRotation.current === 'left' &&
-      activeIndex === 0
-    ) {
-      // Move last element to the front
-      setCarouselItems((prev) => {
-        if (prev.length <= 1) return prev;
-        return [prev[prev.length - 1], ...prev.slice(0, prev.length - 1)];
-      });
-      // pendingRotation.current === 'left' for useLayoutEffect adjustment
-    } else {
-      // If activeIndex changed meanwhile, don’t rotate
-      pendingRotation.current = null;
-    }
-  };
-
-  // 9. After React re‐renders (carouselItems changed), adjust scrollLeft in a layout effect
+  // 9. Adjust scrollLeft after rotation to make it seamless
   useLayoutEffect(() => {
     const c = containerRef.current;
     if (!c) return;
-    const gap = 32; // MUST match .features-container { gap: 32px; }
+    const gap = 32; // must match CSS gap
 
-    // If we just rotated “right” (first→end), subtract (cardWidth + gap)
     if (pendingRotation.current === 'right') {
       const firstCard = c.querySelector('.feature-card');
       if (firstCard) {
@@ -128,9 +136,7 @@ export default function FeaturesCarousel({ features }) {
       }
       pendingRotation.current = null;
       updateActiveIndex();
-    }
-    // If we just rotated “left” (last→front), add (cardWidth + gap)
-    else if (pendingRotation.current === 'left') {
+    } else if (pendingRotation.current === 'left') {
       const firstCard = c.querySelector('.feature-card');
       if (firstCard) {
         const cardW = firstCard.offsetWidth;
@@ -139,10 +145,9 @@ export default function FeaturesCarousel({ features }) {
       pendingRotation.current = null;
       updateActiveIndex();
     }
-    // Otherwise, nothing to do
   }, [carouselItems, updateActiveIndex]);
 
-  // 10. On mount (and whenever item count changes), center the “middle” card
+  // 10. On mount or carouselItems length change, center middle card
   useEffect(() => {
     const c = containerRef.current;
     if (!c || carouselItems.length === 0) return;
@@ -156,7 +161,6 @@ export default function FeaturesCarousel({ features }) {
       const containerW = c.offsetWidth;
       const middleIndex = Math.floor(carouselItems.length / 2);
 
-      // Compute scrollLeft so that the middleIndex card is centered:
       const desiredScrollLeft =
         middleIndex * (cardW + gap) - (containerW - cardW) / 2;
       c.scrollLeft = desiredScrollLeft;
@@ -164,24 +168,6 @@ export default function FeaturesCarousel({ features }) {
       updateActiveIndex();
     });
   }, [carouselItems.length, updateActiveIndex]);
-
-  // 11. Attach scroll & resize listeners
-  useEffect(() => {
-    const c = containerRef.current;
-    if (!c) return;
-
-    updateActiveIndex();
-    c.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', updateActiveIndex);
-
-    return () => {
-      c.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', updateActiveIndex);
-      if (debounceTimer.current) {
-        clearTimeout(debounceTimer.current);
-      }
-    };
-  }, [handleScroll, updateActiveIndex, carouselItems.length, activeIndex]);
 
   return (
     <div className="features-wrapper">
@@ -197,11 +183,11 @@ export default function FeaturesCarousel({ features }) {
             tabIndex="0"
           >
             <div className="image-wrapper">
-              <img src={feature.imageUrl} alt={feature.title} loading="lazy" />
-            </div>
-            <div className="text-wrapper">
-              <h3>{feature.title}</h3>
-              <p>{feature.description}</p>
+              <img
+                src={feature.imageUrl}
+                alt={feature.title}
+                loading="lazy"
+              />
             </div>
           </div>
         ))}

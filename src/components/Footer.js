@@ -1,33 +1,43 @@
-// src/components/Footer.js
 import React from 'react';
 import './Footer.css';
+import { FaLinkedin, FaInstagram } from 'react-icons/fa';
+import logo from '../assets/logo_name.png';
 
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-contact">
-        <h4>Get in Touch</h4>
-        <p>Email: <a href="mailto:hello@crescentia.design">hello@crescentia.design</a></p>
-      </div>
-
-      <div className="footer-links">
-        <h4>Quick Links</h4>
-        <a href="#about">About</a>
-        <a href="#features">Features</a>
-        <a href="#cta">Get Started</a>
-        <a href="#faq">FAQ</a>
-        <a href="#privacy">Privacy Policy</a>
-      </div>
-
-      <div className="footer-social">
-        <h4>Follow Us</h4>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <div className="footer-inner">
+        {/* Left side: Logo + Email */}
+        <div className="footer-left">
+          <img src={logo} alt="Crescentia Logo" className="footer-logo" />
+          <p className="footer-email">
+            Contact us:{' '}
+            <a href="mailto:crescentia@gmail.com">crescentia@gmail.com</a>
+          </p>
         </div>
 
-      <div className="footer-copy">
-        &copy; {new Date().getFullYear()} Crescentia. All rights reserved.
+        {/* Right side: Social Icons */}
+        <div className="footer-right">
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="footer-icon"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="footer-icon"
+          >
+            <FaInstagram />
+          </a>
+        </div>
       </div>
     </footer>
-);
+  );
 }

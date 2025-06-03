@@ -33,7 +33,7 @@ export default function FAQ() {
 
   return (
     <section className="faq-section" id="faq">
-      <h2>You’ve got questions. We’ve got answers.</h2>
+      <h2 className='heading'>You’ve got questions. We’ve got answers.</h2>
       <div className="faq-container">
         {faqs.map((faq, index) => (
           <div key={index} className="faq-item">
@@ -60,6 +60,7 @@ export default function FAQ() {
             >
               <p>{faq.answer}</p>
             </div>
+            <hr className="faq-separator" />
           </div>
         ))}
       </div>

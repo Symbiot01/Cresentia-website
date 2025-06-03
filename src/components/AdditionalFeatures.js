@@ -2,43 +2,44 @@ import React from 'react';
 import useScrollObserver from './ScrollObserver';
 import './AdditionalFeatures.css';
 
-import editImg from '../assets/edit.png';
-import designImg from '../assets/design.png';
-import presentImg from '../assets/present.png';
+import editImg from '../assets/value-1.png';
+import designImg from '../assets/value-2.png';
+import presentImg from '../assets/value-3.png';
 
 export default function About() {
   const ref = useScrollObserver();
   return (
     <section ref={ref} className="Section" id="about">
-      <h2 className='heading'>Plan Bold. Present Better.</h2>
-      <div className="about-content">
-        <div className="about-text">
-          <h3>Who We Are</h3>
+      <h2 className="heading">Plan Bold. Present Better.</h2>
+
+      <div className="addfeature-content">
+        <div className="addfeature-text">
+          <h3>Edit Faster. Approve Sooner.</h3>
           <p>
-            Crescentia is a design studio dedicated to creating beautiful, functional, and user-centered digital experiences. Our team of passionate designers and developers work collaboratively to bring your vision to life.
+            No more static PDFs or back-and-forth chaos. Make quick changes, get instant feedback, and collaborate live. Crescentia speeds up revisions and approvals, giving you more time to focus on what matters: creativity.
           </p>
         </div>
-        <img src={editImg} alt="About Us" className="about-image" />
+        <img src={editImg} alt="About Us" className="addfeature-image" />
       </div>
 
-      <div className="about-content">
-        <img src={designImg} alt="Design" className="about-image" />
-        <div className="about-text">
-          <h3>Our Vision</h3>
+      <div className="addfeature-content reverse">
+        <div className="addfeature-text">
+          <h3>Present Confidently</h3>
           <p>
-            We aim to deliver innovative digital solutions that make an impact and drive success for our clients.
+            Don’t just explain your vision instead show it. Pitch to clients with high-quality visual walkthroughs. Upload your venue video and see your design layered directly into it. Let clients view it through AR or VR, exactly how it will feel on the day.
           </p>
         </div>
+        <img src={designImg} alt="Design" className="addfeature-image" />
       </div>
 
-      <div className="about-content">
-        <div className="about-text">
-          <h3>Our Process</h3>
+      <div className="addfeature-content">
+        <div className="addfeature-text">
+          <h3>Design Visually</h3>
           <p>
-            From initial concepts to final delivery, we collaborate closely with you to ensure everything aligns perfectly with your goals.
+            Go from ideas to immersive layouts without lifting a hammer. With Crescentia, you can drag, drop, and arrange your event space in real-time 3D. Whether it’s a wedding, a launch, or a gala, your full layout comes to life, before a single setup begins.
           </p>
         </div>
-        <img src={presentImg} alt="Presentation" className="about-image" />
+        <img src={presentImg} alt="Presentation" className="addfeature-image" />
       </div>
     </section>
   );

@@ -6,7 +6,11 @@ body, html, #root, .App {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   color: #333;
 }
-
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 .Section {
   opacity: 0;
   transform: translateY(20px);
@@ -14,7 +18,9 @@ body, html, #root, .App {
   padding: 10px 30px 80px 30px;
   margin: 0 auto;
 }
-
+body.menu-open {
+  overflow: hidden; /* hides both x and y overflow */
+}
 .Section.in-view {
   opacity: 1;
   transform: translateY(0);

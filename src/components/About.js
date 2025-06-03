@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css';
-import aboutImage from '../assets/about-image.png'; // Place your image in `src/assets/`
+import aboutImage from '../assets/about-us.png'; // Place your image in `src/assets/`
 
 const About = () => {
   return (
