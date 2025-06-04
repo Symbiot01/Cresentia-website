@@ -29,12 +29,17 @@ const featureData = [
   { id: 18, imageUrl: require('../assets/feature-6.png') },
 ];
 
-
 export default function Features() {
   return (
     <div className="features-page">
       <h2 className="features-heading">Our Features</h2>
       <FeaturesCarousel features={featureData} />
+
+      {/* Swipe Indicator */}
+      <div className="swipe-arrow-hint">
+        <span className="arrow">&#8594;</span> {/* Unicode Right Arrow */}
+      </div>
+
     </div>
   );
 }

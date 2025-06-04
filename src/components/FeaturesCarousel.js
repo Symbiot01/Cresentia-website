@@ -9,32 +9,22 @@ import './FeaturesCarousel.css';
 
 export default function FeaturesCarousel({ features }) {
   const containerRef = useRef(null);
-
-  // 1. Stateful carousel items
   const [carouselItems, setCarouselItems] = useState(features);
-
-  // 2. Track active index closest to center
-  const [activeIndex, setActiveIndex] = useState(
-    Math.floor(features.length / 2)
-  );
-
-  // 3. Rotation direction ref
+  const [activeIndex, setActiveIndex] = useState(Math.floor(features.length / 2));
   const pendingRotation = useRef(null);
-
-  // 4. Debounce timer ref
   const debounceTimer = useRef(null);
 
-  // 5. Vertical wheel → horizontal scroll
-  const handleWheel = (e) => {
+  // Horizontal scroll on vertical wheel
+  const handleWheelManual = useCallback((e) => {
     const c = containerRef.current;
     if (!c) return;
     if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
       e.preventDefault();
       c.scrollBy({ left: e.deltaY, behavior: 'smooth' });
     }
-  };
+  }, []);
 
-  // 6. Memoized updateActiveIndex
+  // Determine closest card to center
   const updateActiveIndex = useCallback(() => {
     const c = containerRef.current;
     if (!c) return;
@@ -59,12 +49,11 @@ export default function FeaturesCarousel({ features }) {
     setActiveIndex(closest);
   }, []);
 
-  // 7 & 8. Attach scroll listener, define handleScroll and boundaryCheck inside useEffect
+  // Scroll and boundary logic
   useEffect(() => {
     const c = containerRef.current;
     if (!c) return;
 
-    // boundaryCheck moves carouselItems for infinite scroll effect
     const boundaryCheck = () => {
       if (!pendingRotation.current) return;
 
@@ -72,24 +61,17 @@ export default function FeaturesCarousel({ features }) {
         pendingRotation.current === 'right' &&
         activeIndex === carouselItems.length - 1
       ) {
-        setCarouselItems((prev) => {
-          if (prev.length <= 1) return prev;
-          return [...prev.slice(1), prev[0]];
-        });
+        setCarouselItems((prev) => [...prev.slice(1), prev[0]]);
       } else if (
         pendingRotation.current === 'left' &&
         activeIndex === 0
       ) {
-        setCarouselItems((prev) => {
-          if (prev.length <= 1) return prev;
-          return [prev[prev.length - 1], ...prev.slice(0, prev.length - 1)];
-        });
+        setCarouselItems((prev) => [prev[prev.length - 1], ...prev.slice(0, prev.length - 1)]);
       } else {
         pendingRotation.current = null;
       }
     };
 
-    // handleScroll uses latest activeIndex and carouselItems
     const handleScroll = () => {
       updateActiveIndex();
 
@@ -122,11 +104,11 @@ export default function FeaturesCarousel({ features }) {
     };
   }, [activeIndex, carouselItems.length, updateActiveIndex]);
 
-  // 9. Adjust scrollLeft after rotation to make it seamless
+  // Adjust scroll to maintain seamless transition
   useLayoutEffect(() => {
     const c = containerRef.current;
     if (!c) return;
-    const gap = 32; // must match CSS gap
+    const gap = 32;
 
     if (pendingRotation.current === 'right') {
       const firstCard = c.querySelector('.feature-card');
@@ -147,7 +129,7 @@ export default function FeaturesCarousel({ features }) {
     }
   }, [carouselItems, updateActiveIndex]);
 
-  // 10. On mount or carouselItems length change, center middle card
+  // Initial center scroll
   useEffect(() => {
     const c = containerRef.current;
     if (!c || carouselItems.length === 0) return;
@@ -169,13 +151,18 @@ export default function FeaturesCarousel({ features }) {
     });
   }, [carouselItems.length, updateActiveIndex]);
 
+  // Attach non-passive wheel listener manually
+  useEffect(() => {
+    const c = containerRef.current;
+    if (!c) return;
+
+    c.addEventListener('wheel', handleWheelManual, { passive: false });
+    return () => c.removeEventListener('wheel', handleWheelManual);
+  }, [handleWheelManual]);
+
   return (
     <div className="features-wrapper">
-      <div
-        className="features-container"
-        ref={containerRef}
-        onWheel={handleWheel}
-      >
+      <div className="features-container" ref={containerRef}>
         {carouselItems.map((feature, idx) => (
           <div
             key={feature.id}

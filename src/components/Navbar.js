@@ -3,37 +3,42 @@ import './Navbar.css';
 import logo_name from '../assets/logo_name.png';
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // Prevent background scroll when mobile menu is open
+  // Prevent body scroll when menu is open
   useEffect(() => {
-    document.body.classList.toggle('menu-open', open);
-  }, [open]);
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <nav className="navbar">
-      <div className="logo">
-        <a href="#hero">
-          <img src={logo_name} alt="Crescentia logo" />
-          <span className="sr-only">Crescentia</span>
-        </a>
+    <header className="navbar">
+      <div className="navbar-content">
+        <div className="logo">
+          <img src={logo_name} alt="Logo" />
+        </div>
+
+        <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
+          <a href="#hero" onClick={closeMenu}>Home</a>
+          <a href="#features" onClick={closeMenu}>Features</a>
+          <a href="#about" onClick={closeMenu}>About</a>
+          <a href="#faq" onClick={closeMenu}>FAQ</a>
+        </nav>
+
+        <button
+          className={`hamburger ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </div>
-      <div className={`links ${open ? 'open' : ''}`}>
-        <a href="#hero">Home</a>
-        <a href="#features">Features</a>
-        <a href="#about">About</a>
-        <a href="#faq">FAQ</a>
-      </div>
-      <button
-        className="hamburger"
-        onClick={() => setOpen(!open)}
-        aria-label="Toggle menu"
-        aria-expanded={open}
-      >
-        <span />
-        <span />
-        <span />
-      </button>
-    </nav>
+
+      {/* Overlay */}
+      {menuOpen && <div className="overlay" onClick={closeMenu}></div>}
+    </header>
   );
 }

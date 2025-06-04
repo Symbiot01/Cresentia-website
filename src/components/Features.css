@@ -1,6 +1,6 @@
 .features-page{
   background-color: #cca180;
-  padding: 60px 20px;
+  padding: 60px 0px;
   text-align: center;
 }
 
@@ -9,7 +9,88 @@
   font-size: 6em;
   color: #6c6142;
   margin-bottom: 40px;
+  margin-top: 0;
   text-align: center;
   text-shadow: -2px -2px 4px rgba(0, 0, 0, 0.3); /* Drop shadow at -45° */
 }
 
+/* Optional responsive adjustments */
+@media (max-width: 450px) {
+  .swipe-indicator {
+    margin-top: 20px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .features-heading {
+    font-size: 4.5em; /* Adjusted for smaller screens */
+    margin-bottom: 20px;
+  }
+  
+}
+
+@media screen and (max-width: 450px) {
+  .features-heading {
+    font-size: 3em; /* Further adjustment for very small screens */
+    margin-bottom: 10px;
+  }
+  
+}
+
+.swipe-arrow-hint {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  height: 40px;
+  position: relative;
+}
+
+.arrow {
+  font-size: 2.5rem;
+  color: #6c6142; /* Matches theme */
+  opacity: 0;
+  animation: arrowFade 3s infinite;
+  transform: translateX(0);
+}
+
+@keyframes arrowFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(5px);
+  }
+  90% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+}
+
+/* Optional: Reduce size on small screens */
+@media (max-width: 450px) {
+  .arrow {
+    font-size: 2rem;
+  }
+
+  .swipe-arrow-hint {
+    margin-top: 20px;
+    height: 30px;
+  }
+}
