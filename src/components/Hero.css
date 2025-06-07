@@ -22,16 +22,13 @@
 }
 
 .hero-content .subheadline {
-  font-size: 2rem; /* Increased from original */
   margin-bottom: 32px;
-  margin-left: 20px;
 }
 
 .hero-content p {
-  font-size: 5rem;
+  font-size: 1.5rem;
   line-height: 1.6;
   margin-bottom: 32px;
-  margin-left: 20px;
 }
 
 .hero-image {

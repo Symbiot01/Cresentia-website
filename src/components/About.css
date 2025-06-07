@@ -2,91 +2,105 @@
   background-color: #cca180;
   padding: 4rem 2rem;
   font-family: 'Segoe UI', sans-serif;
+  margin: 0; /* remove any margin */
 }
 
 .about-container {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 40% 1fr auto;
+  gap: 1.5rem;
   align-items: center;
-  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
 }
 
 .about-image {
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 40%;
+  margin: 0;
+  padding: 0;
 }
 
 .about-image img {
   width: 100%;
   max-width: 500px;
   border-radius: 10px;
+  display: block;
 }
 
 .about-text {
-  display: flex;
-  flex: 1;
-  min-width: 300px;
   color: #2f2f2f;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
-.about-text h2 {
+.about-text p {
+  margin: 0 0 1rem 0; /* only bottom margin */
+  padding: 0;
+}
+
+.about-heading {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   text-align: center;
   font-size: 8rem;
   color: #5d4524;
-  margin-left: 10px;
-  margin-bottom: 0.1rem;
-  float: right;
+  margin: 0;
+  padding: 0;
+  justify-self: end;
 }
-
-.about-text p {
-  font-size: 1.8rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+@media(max-width: 1200px) {
+  .about-heading {
+    font-size: 5rem;
+  }
+  .about-text p {
+    font-size: 1.3rem;
+  }
 }
-
-/* Medium Screens */
+/* Medium Screens (≤768px) */
 @media (max-width: 768px) {
   .about-container {
+    display: flex;
     flex-direction: column;
-  }
-
-  .about-text {
-    flex-direction: column-reverse;
-  }
-
-  .about-text h2 {
-    writing-mode: horizontal-tb;
-    transform: rotate(0deg);
-    font-size: 4.5rem;
-  }
-
-  .about-text p {
-    font-size: 1.5rem;
-  }
-}
-
-/* Small Screens (Mobile <450px) */
-@media (max-width: 450px) {
-  .about-text h2 {
-    font-size: 3rem;
-  }
-
-  .about-text p {
-    font-size: 1.15rem;
-  }
-
-  .about-section {
-    padding: 3rem 1.5rem;
+    gap: 1rem;
   }
 
   .about-image {
     max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .about-text {
+    font-size: 1.5rem;
+    order: 2;
+  }
+
+  .about-heading {
+    writing-mode: horizontal-tb;
+    transform: rotate(0deg);
+    font-size: 4.5rem;
+    align-self: flex-start;
+    order: 1;
+    margin: 0 0 1rem 0;
+    padding: 0;
+  }
+}
+
+/* Small Screens (≤450px) */
+@media (max-width: 450px) {
+  .about-text {
+    font-size: 1.15rem;
+  }
+
+  .about-heading {
+    font-size: 3rem;
+  }
+
+  .about-section {
+    padding: 3rem 1.5rem;
   }
 }
