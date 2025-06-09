@@ -9,12 +9,13 @@ export default function WaitlistForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const googleFormURL = 
-      "https://docs.google.com/forms/d/e/1FAIpQLSe96q78kS2qGTsrQRX9Yf2I3vYGFlU5fT4SDhVYyPBGfZaziQ/formResponse";
+    const googleFormURL =
+      "https://docs.google.com/forms/d/e/1FAIpQLScH-pu_lAoK-9QCBnhLYj5KfUylpXp3TEIwXA9f4YZXLYCKPw/formResponse";
+
     const formData = new FormData();
-    formData.append("entry.1806262846", name);    // ← your Name field ID
-    formData.append("entry.4674183", email);      // ← your Email field ID
-    formData.append("entry.1234567890", queries); // ← replace with your Queries field ID
+    formData.append("entry.274893244", name);     // Name
+    formData.append("entry.1093877773", email);    // Email
+    formData.append("entry.1963943490", queries);  // Questions
 
     fetch(googleFormURL, {
       method: "POST",
@@ -32,6 +33,7 @@ export default function WaitlistForm() {
         alert("Oops! There was an error submitting the form.");
       });
   };
+
 
   return (
     <form className="waitlist-form" onSubmit={handleSubmit}>
