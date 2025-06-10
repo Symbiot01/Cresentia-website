@@ -23,7 +23,7 @@ export default function Hero() {
       <div className="hero-content">
         <h1>Design smarter. Plan faster.<br /> Execute flawlessly.</h1>
         <p className="subheadline">
-          Welcome to <strong>Crescentia</strong> — your immersive 3D event design platform.
+          Welcome to <strong>Crescentia</strong> — your go-to tool for event decor planning and visualization. 
         </p>
 
          {/*

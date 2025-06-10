@@ -4,19 +4,19 @@ import './FAQ.css';
 const faqs = [
   {
     question: 'What is Crescentia?',
-    answer: 'Crescentia is an immersive 3D event design platform that replaces static sketches and guesswork with a drag-and-drop studio.',
+    answer: 'Crescentia is a 3D event design and planning platform that replaces static sketches with an interactive drag-and-drop studio.',
   },
   {
     question: 'Who is Crescentia for?',
-    answer: 'Event planners, designers, creative agencies, and production teams looking for a visual-first, collaborative way to plan and present event layouts.',
+    answer: 'Ideal for event planners, designers, creative agencies, and production teams who need a visual-first, collaborative way to design and present event layouts.',
   },
   {
     question: 'Do I need to know design software to use it?',
-    answer: 'Not at all. Crescentia was designed to be intuitive and requires zero prior design or tech experience.',
+    answer: 'Not at all. Crescentia is beginner-friendly, with an intuitive interface that requires no prior design or tech experience.',
   },
   {
     question: 'What kind of events can I plan with Crescentia?',
-    answer: 'Anything — from intimate weddings to large-scale expos. The platform is flexible for any size or style of event.',
+    answer: 'From weddings and galas to expos and conferences; Crescentia is flexible and scalable for events of any size or style.',
   },
   {
     question: 'When is Crescentia launching?',

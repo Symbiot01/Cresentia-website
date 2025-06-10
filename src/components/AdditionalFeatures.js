@@ -16,7 +16,7 @@ export default function About() {
         <div className="addfeature-text">
           <h3>Edit Faster. Approve Sooner.</h3>
           <p>
-            No more static PDFs or back-and-forth chaos. Make quick changes, get instant feedback, and collaborate live. Crescentia speeds up revisions and approvals, giving you more time to focus on what matters: creativity.
+            No more static PDFs or chaotic email threads. Make real-time changes, get instant feedback, and collaborate live. Crescentia accelerates event revisions and approvals, helping planners focus more on what matters: creativity and experience.
           </p>
         </div>
         <img src={editImg} alt="About Us" className="addfeature-image" />
@@ -26,7 +26,7 @@ export default function About() {
         <div className="addfeature-text">
           <h3>Present Confidently</h3>
           <p>
-            Don’t just explain your vision instead show it. Pitch to clients with high-quality visual walkthroughs. Upload your venue video and see your design layered directly into it. Let clients view it through AR or VR, exactly how it will feel on the day.
+            Don’t just describe your event concept - show it. Pitch clients using immersive 3D walkthroughs layered over venue videos. With AR/VR integration, let them explore the full layout virtually, just as it will appear on the big day.
           </p>
         </div>
         <img src={designImg} alt="Design" className="addfeature-image" />
@@ -36,7 +36,7 @@ export default function About() {
         <div className="addfeature-text">
           <h3>Design Visually</h3>
           <p>
-            Go from ideas to immersive layouts without lifting a hammer. With Crescentia, you can drag, drop, and arrange your event space in real-time 3D. Whether it’s a wedding, a launch, or a gala, your full layout comes to life, before a single setup begins.
+            Bring ideas to life with Crescentia’s real-time 3D event layout builder. From weddings and corporate launches to festivals and expos, our platform lets you drag, drop, and perfect every detail, all before a single item is set up.
           </p>
         </div>
         <img src={presentImg} alt="Presentation" className="addfeature-image" />
